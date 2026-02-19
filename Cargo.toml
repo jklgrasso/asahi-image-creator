@@ -1,0 +1,10 @@
+[package]
+name = "asahi-image-creator"
+license-file = "LICENSE"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = "4.5.58"
+ctrlc = "3.5.2"
+loopdev-3 = "0.5.3"
