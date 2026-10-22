@@ -1,16 +1,17 @@
-use std::path::{Path, PathBuf};
 use clap::{self, Error};
+use std::path::{Path, PathBuf};
 
 use crate::create::Image;
 
 mod create;
+mod macos;
 
 fn main() -> Result<(), Error> {
     let loopback = Image::loopback();
     let exists = Path::exists(&PathBuf::from("/dev/loop0"));
 
     println!("ISO provided: {}", loopback.name.trim_start_matches("../"));
-    
+
     if exists == true {
         println!("Loopback device already found. Detaching");
         loopback.detach;
@@ -31,6 +32,6 @@ fn main() -> Result<(), Error> {
             break;
         }
     }
-    
+
     Ok(())
 }
